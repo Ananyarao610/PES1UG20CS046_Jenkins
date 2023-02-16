@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'g++ -c main/new.cpp' 
-                sh 'g++ -o new main/new.cpp'
+                sh 'g++ -c main/hello.cpp' 
+                sh 'g++ -o new main/hello.cpp'
                 sh 'Build successful'
             }
         }
