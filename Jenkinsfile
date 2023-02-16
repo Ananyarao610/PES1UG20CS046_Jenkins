@@ -19,7 +19,7 @@ pipeline {
                 echo 'Deployment successful'
                 }
             }
-[11:10, 16/02/2023] Aditi T: }
+}
   post{
     failure {
       echo 'Pipeline failure'
