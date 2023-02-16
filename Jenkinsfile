@@ -1,28 +1,33 @@
-[11:10, 16/02/2023] Aditi T: pipeline {
+pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
-                sh 'g++ -c hello.cpp' 
                 sh 'g++ -o hello hello.cpp'
-                sh 'Build successful'
             }
         }
+
         stage('Test') {
             steps {
-                sh './hello' 
-                echo 'test stage executed successfully'
+                sh './hello'
             }
         }
+
         stage('Deploy') {
             steps {
-                echo 'Deployment successful'
+                echo 'deployed successfully'
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                if (currentBuild.result == 'FAILURE') {
+                    echo 'pipeline failed'
                 }
             }
- }
-  post{
-    failure {
-      echo 'Pipeline failure'
+        }
     }
-  }
 }
