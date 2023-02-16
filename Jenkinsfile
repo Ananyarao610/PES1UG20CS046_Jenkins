@@ -3,14 +3,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'g++ -c hello.cpp' 
-                sh 'g++ -o hello hello.cpp'
+                sh 'g++ -c new.cpp' 
+                sh 'g++ -o new new.cpp'
                 sh 'Build successful'
             }
         }
         stage('Test') {
             steps {
-                sh './hello' 
+                sh './new' 
                 echo 'test stage executed successfully'
             }
         }
